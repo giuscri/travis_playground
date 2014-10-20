@@ -1,8 +1,10 @@
+CC=gcc
+CFLAGS=-std=c99 
+
 main:
-	$(CC) main.c -std=c99 --output main
+	$(CC) main.c $(CFLAGS) --output $@
 
 clean:
 	rm -rf *.o
 
-dist-clean:
-	rm -rf main
+.PHONY: clean
