@@ -1,3 +1,14 @@
 language: c
+
 compiler: gcc
-script: make
+
+install:
+        sudo apt-get install valgrind
+
+script:
+        - make
+        #...
+
+after_script:
+        valgrind --leak-check=full --show-reachable=yes \
+                --error-exitcode=1 ./main
